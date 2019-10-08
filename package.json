@@ -1,0 +1,26 @@
+{
+  "name": "school-notice-crawling",
+  "version": "0.0.1",
+  "description": "crawling ajou univ. notices properly",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nailerHeum/school-notice-crawling.git"
+  },
+  "keywords": [
+    "crawling",
+    "puppeteer"
+  ],
+  "author": "NailerHeum",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nailerHeum/school-notice-crawling/issues"
+  },
+  "homepage": "https://github.com/nailerHeum/school-notice-crawling#readme",
+  "dependencies": {
+    "puppeteer": "^1.20.0"
+  }
+}
