@@ -13,13 +13,16 @@ const { sleep, Noti } = require("./notice-utils");
   } catch (e) {
     throw new Error("Cannot get page");
   }
-  
-  for (let i = 0; i<10; i++) {
-    notices.push(await page.waitFor(`#jwxe_main_content > div > div.list_wrap > table > tbody > tr:nth-child(${i+1}) > td.td.title_comm > a`));
-    noticetrs.push(await page.waitFor(`#jwxe_main_content > div > div.list_wrap > table > tbody > tr:nth-child(${i+1})`))
-    console.log(`Got ${i}th notice`);
+  try{
+    for (let i = 0; i<10; i++) {
+      notices.push(await page.waitFor(`#jwxe_main_content > div > div.list_wrap > table > tbody > tr:nth-child(${i+1}) > td.td.title_comm > a`));
+      noticetrs.push(await page.waitFor(`#jwxe_main_content > div > div.list_wrap > table > tbody > tr:nth-child(${i+1})`))
+      console.log(`Got ${i}th notice`);
+    }
+  } catch (e) {
+    throw new Error("Maybe Wrong Query Selector");
   }
-
+  
   let titles = [];
   for (notice of notices) {
     titles.push(await page.evaluate( notice => notice.textContent, notice));
